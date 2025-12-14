@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderBanners() {
         const bannerContainer = document.getElementById('carousel-items-container');
+        const indicatorsContainer = document.getElementById('carousel-indicators');
         const bannerSection = document.getElementById('offers-framework');
 
         if (!bannerContainer || !bannerSection) return;
@@ -58,9 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         bannerSection.classList.remove('d-none');
         bannerContainer.innerHTML = '';
+        if (indicatorsContainer) indicatorsContainer.innerHTML = '';
 
         banners.forEach((b, index) => {
             const activeClass = index === 0 ? 'active' : '';
+
+            // Create Indicator
+            if (indicatorsContainer) {
+                const indicator = document.createElement('button');
+                indicator.type = 'button';
+                indicator.dataset.bsTarget = '#mainCarousel';
+                indicator.dataset.bsSlideTo = index;
+                indicator.ariaLabel = `Slide ${index + 1}`;
+                if (index === 0) {
+                    indicator.classList.add('active');
+                    indicator.ariaCurrent = 'true';
+                }
+                indicatorsContainer.appendChild(indicator);
+            }
+
+            // Create Slide
             const item = document.createElement('div');
             item.className = `carousel-item ${activeClass}`;
 
