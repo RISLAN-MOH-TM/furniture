@@ -193,6 +193,15 @@ body {
     padding-top: 2rem;
 }
 
+@media (max-width: 768px) {
+
+    .admin-sidebar,
+    .sidebar {
+        height: auto;
+        min-height: auto;
+    }
+}
+
 .admin-link {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
@@ -264,4 +273,22 @@ body {
 .carousel-item img {
     margin: 0;
     padding: 0;
+}
+
+/* Base Carousel Indicators customization */
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 5px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    border: none;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    background-color: var(--secondary-color);
+    /* Optional: highlight color */
 }
