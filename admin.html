@@ -18,8 +18,14 @@
 
         .sidebar {
             background: #2c3e50;
-            min-height: 100vh;
+            /* min-height: 100vh;  Moved to media query */
             color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                min-height: 100vh;
+            }
         }
 
         .sidebar .nav-link {
@@ -67,10 +73,20 @@
         </div>
     </div>
 
+    <!-- Mobile Toggle Header -->
+    <header class="navbar navbar-dark bg-dark sticky-top flex-md-nowrap p-2 shadow d-md-none mb-3">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 fw-bold" href="#">AURA Admin</a>
+        <button class="navbar-toggler position-absolute end-0 me-3 collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+
     <div class="container-fluid d-none" id="admin-app">
         <div class="row">
             <!-- Sidebar -->
-            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse show p-3">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse p-3">
                 <a href="/" class="d-flex align-items-center mb-4 text-white text-decoration-none">
                     <i class="bi bi-box-seam-fill me-2 fs-4"></i>
                     <span class="fs-4 fw-bold">AURA Admin</span>
