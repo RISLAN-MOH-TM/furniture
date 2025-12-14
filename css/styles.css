@@ -94,6 +94,12 @@ body {
     padding-top: 76px;
 }
 
+@media (max-width: 1024px) {
+    .hero-section {
+        background-attachment: scroll;
+    }
+}
+
 /* Section Titles */
 .section-title {
     position: relative;
